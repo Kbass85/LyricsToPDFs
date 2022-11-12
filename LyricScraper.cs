@@ -81,7 +81,7 @@ namespace AZLyricScraperNetFramework
             catch (Exception ex)
             {
                 System.Console.WriteLine(ex.Message);
-                //Thread.Sleep(1500);
+                Thread.Sleep(1500);
                 return String.Empty;
             }
         }
@@ -95,8 +95,7 @@ namespace AZLyricScraperNetFramework
             else
             {
                 pdf.Save(path + @"\" + songtitle + " - " + artist + ".pdf");
-            }
-            
+            }          
         }
     }
 }

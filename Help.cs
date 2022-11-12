@@ -1,21 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AZLyricScraperNetFramework
+﻿namespace AZLyricScraperNetFramework
 {
     public static class Help
     {
-        public static string HelpText = "usage:\t" +
+        public static string HelpText = "\nUsage:\t" +
             "AzLyricScraperNetFramework <pathtocsvfile.csv> <pathtodestinationdirectory>\n" +
+            "Options:\n" +
             "\t-m\tmanual entry\n" +
-            "csv format:\n\t" +
-            "Title1,Artist1\n\t" +
-            "Fly Me To The Moon,Frank Sinatra\n\t" +
-            "Title3,Artist3\n\t" +
-            "Title4,\n\t" +
-            "*Artist field is optional. The Title comma is required";
+            "\t-h\thelp\n" +
+            "csv format:\n" +
+            "\tTitle1,Artist1\n" +
+            "\tFly Me To The Moon,Frank Sinatra\n" +
+            "\tTitle3,Artist3\n" +
+            "\tTitle4,<optional>\n" +
+            "\t*Artist field is optional. The Title comma is required";
     }
 }
