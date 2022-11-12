@@ -10,6 +10,7 @@ namespace AZLyricScraperNetFramework
     {
         public static string HelpText = "usage:\t" +
             "AzLyricScraperNetFramework <pathtocsvfile.csv> <pathtodestinationdirectory>\n" +
+            "\t-m\tmanual entry\n" +
             "csv format:\n\t" +
             "Title1,Artist1\n\t" +
             "Fly Me To The Moon,Frank Sinatra\n\t" +

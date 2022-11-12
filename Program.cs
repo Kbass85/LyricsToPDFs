@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -11,11 +12,35 @@ namespace AZLyricScraperNetFramework
         {
             //DEBUG ARGS
             //args = new[] { @"C:\Users\kbass\Desktop\songstoscrape.csv", @"C:\Users\kbass\source\repos\AZLyricScraperNetFramework\bin\Debug\Files6\" };
-        
             //check args
-            if (args.Length < 2)
+            if (args.Length < 1)
             {
                 Console.WriteLine(Help.HelpText);
+                return;
+            }
+            if (args[0] == "-m")
+            {
+                Console.Write("Enter Song Title: ");
+                var songtitle = Console.ReadLine();
+                Console.Write("(Optional)\nEnter Artist: ");
+                var artist = Console.ReadLine();
+                string destinationDirectory = Directory.GetCurrentDirectory();
+                Task<string> task = LyricScraper.GetUrl(songtitle, artist);
+                task.Wait(3000);
+
+                Task<string> task2 = LyricScraper.GetHtml(task.Result, songtitle, artist, destinationDirectory);
+                task2.Wait(3000);
+
+                LyricScraper.Html2Pdf(task2.Result, songtitle, artist, destinationDirectory);
+                if(artist == string.Empty)
+                {
+                    Console.WriteLine($"Saved to {destinationDirectory}\\{songtitle}");
+                }
+                else
+                {
+                    Console.WriteLine($"Saved to {destinationDirectory}\\{songtitle} - {artist}");
+                }
+                
                 return;
             }
             if (Directory.Exists(args[1]) == false)

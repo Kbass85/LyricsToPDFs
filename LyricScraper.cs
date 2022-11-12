@@ -88,7 +88,15 @@ namespace AZLyricScraperNetFramework
         public static void Html2Pdf(string html, string songtitle, string artist, string path)
         {
             PdfDocument pdf = PdfGenerator.GeneratePdf(html, PageSize.A4, 13, null, null, null);
-            pdf.Save(path + @"\" + songtitle + " - " + artist + ".pdf");
+            if (artist == string.Empty)
+            {
+                pdf.Save(path + @"\" + songtitle+".pdf");
+            }
+            else
+            {
+                pdf.Save(path + @"\" + songtitle + " - " + artist + ".pdf");
+            }
+            
         }
     }
 }
