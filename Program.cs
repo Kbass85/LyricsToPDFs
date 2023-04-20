@@ -11,7 +11,7 @@ namespace AZLyricScraperNetFramework
         static void Main(string[] args)
         {
             //DEBUG ARGS
-            //args = new[] { @"C:\Users\kbass\Desktop\songstoscrape.csv", @"C:\Users\kbass\source\repos\AZLyricScraperNetFramework\bin\Debug\Files6\" };
+            args = new[] { @"C:\Users\kbass\Desktop\songstoscrape.csv", @"C:\Users\kbass\source\repos\AZLyricScraperNetFramework\bin\Debug\Files\" };
             
             //check args
             if (args.Length < 2)
